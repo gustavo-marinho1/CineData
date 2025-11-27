@@ -7,7 +7,7 @@ import { FormSearchMobile } from "./FormSearchMobile";
 
 export const Header = () => {
   return (
-    <header className="sticky top-0 z-50 flex items-center justify-center border-b border-white/10 bg-gray-950/90 px-4 py-3 sm:px-6 lg:px-8">
+    <header className="h-16 sticky top-0 z-50 flex items-center justify-center border-b border-white/10 bg-gray-950/90 px-4 py-3 sm:px-6 lg:px-8">
       <div className="flex w-full max-w-7xl items-center justify-between">
 
         <div className="flex gap-4">
