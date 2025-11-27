@@ -5,13 +5,23 @@ import { MovieNotFound } from "../components/MovieNotFound";
 import { MovieTopInfo } from "@/components/MovieTopInfo";
 import { MovieTopPoster } from "@/components/MovieTopPoster";
 import { MovieDetails } from "@/components/MovieDetails";
+import { addToMyList, removeFromMyList, type ItemMyList } from "@/lib/cineSliceMyList";
+import { useDispatch, useSelector } from "react-redux";
+import { addToMyHistory, type ItemHistory } from "@/lib/cineSliceHistory";
 
 export const Movie = () => {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const params = new URLSearchParams(location.search);
   const [data, setData] = useState<MovieType>();
+  const [addedToFav, setAddedToFav] = useState<boolean>(false);
   const [notFound, setNotFound] = useState<boolean>(false);
+
+  // @ts-ignore
+  const myList: ItemMyList[] = useSelector((state) => state.myList.myList);
+  // @ts-ignore
+  const myHistory: ItemHistory[] = useSelector((state) => state.myHistory.myHistory);
 
   useEffect(() => {
     const i = params.get("i");
@@ -23,6 +33,28 @@ export const Movie = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (!data) return
+    // checking my list
+    checkIsInMyList(data.imdbID);
+    // add to history
+    dispatch(
+      addToMyHistory({
+        Poster: data.Poster,
+        Title: data.Title,
+        imdbID: data.imdbID
+      })
+    );
+  }, [data]);
+
+  useEffect(() => console.log(myHistory), [myHistory]);
+
+  useEffect(() => {
+    if (data) {
+      checkIsInMyList(data.imdbID);
+    }
+  }, [myList]);
+
   const getMovie = async (i: string) => {
     const m = await searchMovieById(i);
     if (m.Response === "True") {
@@ -33,6 +65,36 @@ export const Movie = () => {
     }
   }
 
+  const checkIsInMyList = (imdbID: string) => {
+    const isInMyList = myList.find(item => item.imdbID === imdbID);
+    if (isInMyList) {
+      setAddedToFav(true);
+    }
+    else {
+      setAddedToFav(false);
+    }
+  }
+
+  const addRemoveFav = () => {
+    if (!data) return;
+    if (addedToFav) {
+      // remove from myList
+      dispatch(
+        removeFromMyList(data.imdbID)
+      );
+    }
+    else {
+      // add to myList
+      dispatch(
+        addToMyList({
+          Poster: data.Poster,
+          Title: data.Title,
+          imdbID: data.imdbID
+        })
+      );
+    }
+  };
+
   return (
     <div className="w-full h-full">
 
@@ -41,19 +103,22 @@ export const Movie = () => {
       )}
 
       {data && (
-        <div className="flex flex-col">
+        <div className="w-full flex flex-col">
 
-          <section className="relative min-h-[500px] md:min-h-[600px] flex items-center justify-center">
-            <div className="relative w-full max-w-6xl">
+          <section className="w-full relative flex items-center justify-center">
+            <div className="relative w-full">
               <div className="flex flex-col md:flex-row gap-8 items-start">
-                <MovieTopPoster poster={data.Poster} />
-                <MovieTopInfo data={data} />
-                Sa
+                <div className="w-full md:w-2/7">
+                  <MovieTopPoster poster={data.Poster} />
+                </div>
+                <div className="w-full md:w-5/7 md:mt-10 flex flex-col gap-6">
+                  <MovieTopInfo data={data} addedToFav={addedToFav} addRemoveFav={addRemoveFav} />
+                </div>
               </div>
             </div>
           </section>
 
-          <section className="w-full max-w-6xl">
+          <section className="w-full">
             <MovieDetails data={data} />
           </section>
 

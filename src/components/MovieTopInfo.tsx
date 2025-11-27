@@ -1,13 +1,23 @@
+import { AddList } from "@/assets/add-list";
 import type { MovieType } from "@/lib/movie";
 
-export const MovieTopInfo = ({data}: {data: MovieType}) => {
+export const MovieTopInfo = ({data, addedToFav, addRemoveFav}: {
+  data: MovieType,
+  addedToFav: boolean,
+  addRemoveFav: () => void
+}) => {
   return (
     <div id="movie-top-info" className="w-full flex flex-col gap-6 text-left">
 
       <div className="flex flex-col gap-3">
-        <p className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-[-0.033em] text-white">{data.Title}</p>
-        <p className="text-gray-300 text-base font-normal leading-normal">{data.Year}</p>
-        <p className="text-gray-300 text-base font-normal leading-normal">{data.Genre}</p>
+        <div className="flex gap-4 items-center">
+          <p className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-[-0.033em] text-white">{data.Title}</p>
+          <div className="cursor-pointer mt-3" onClick={() => addRemoveFav()}>
+            <AddList added={addedToFav} size="w-10 h-10" />
+          </div>
+        </div>
+        <p className="text-gray-300 text-base font-normal">{data.Year}</p>
+        <p className="text-gray-300 text-base font-normal">{data.Genre}</p>
       </div>
 
       <div className="flex gap-2 items-center">

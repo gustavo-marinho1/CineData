@@ -1,14 +1,21 @@
-export const CardHistory = ({imageUrl}: {
-  imageUrl: string
+export const CardHistory = ({imageUrl, title}: {
+  imageUrl: string,
+  title: string
 }) => {
+
   return (
-    <a className="group block" href="#">
-      <div className="w-full overflow-hidden rounded-lg bg-white/5 transition-transform duration-300 group-hover:scale-105">
-        <div className="w-full bg-center bg-no-repeat aspect-[2/3] bg-cover"
-          data-alt="Poster for the movie The Matrix"
-          style={{ backgroundImage: `url("${imageUrl}")` }}>
-        </div>
+    <div className="w-full aspect-2/3 group relative overflow-hidden rounded-xl cursor-pointer" data-alt={`Movie poster for ${title}`}>
+
+      <div className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-102">
+        <img alt={`Movie poster for ${title}`} src={imageUrl} className="w-full h-full object-cover" />
       </div>
-    </a>
+
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+
+      <div className="absolute inset-x-0 bottom-0 p-3 text-white">
+        <h3 className="font-bold text-sm">{title}</h3>
+      </div>
+
+    </div>
   )
 }

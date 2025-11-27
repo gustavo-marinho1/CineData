@@ -6,8 +6,6 @@ import { SearchListing } from "../components/SearchListing";
 import { SearchEmpty } from "../components/SearchEmpty";
 import { SearchLoading } from "../components/SearchLoading";
 
-const pageSize = 10;
-
 export const Searching = () => {
 
   const navigate = useNavigate();
@@ -56,8 +54,8 @@ export const Searching = () => {
 
       {(items.length > 0) && (
         <div className="w-full flex flex-col items-start">
-          <h2 className="text-gray-900 dark:text-white text-2xl font-bold leading-tight tracking-tight">Results</h2>
-          <p className="text-gray-500 dark:text-gray-400 text-sm">Showing {pageSize} de {total} - page {page}</p>
+          <h2 className="text-white dark:text-white text-2xl font-bold leading-tight tracking-tight">Results</h2>
+          <p className="text-gray-300 dark:text-gray-400 text-sm">Page {page}</p>
         </div>
       )}
 

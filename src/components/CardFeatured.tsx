@@ -5,7 +5,7 @@ export const CardFeatured = ({imageUrl, title, description}: {
 }) => {
 
   return (
-    <div className="group relative flex w-full aspect-[2/3] flex-shrink-0 flex-col overflow-hidden rounded-xl shadow-lg transition-transform duration-300">
+    <div className="group relative flex w-full aspect-[2/3] flex-shrink-0 flex-col overflow-hidden rounded-xl shadow-lg transition-transform duration-300 cursor-pointer">
 
       <div
         className="absolute inset-0 bg-center bg-no-repeat bg-cover"
