@@ -1,4 +1,4 @@
-import { Logo } from "../assets/logo"
+import { Logo } from "./Logo";
 
 export const Footer = () => {
   return (
@@ -6,14 +6,7 @@ export const Footer = () => {
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
 
-          <div className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-left">
-            <div className="flex items-center gap-3 text-white">
-              <div className="size-7 text-primary">
-                <Logo />
-              </div>
-              <h2 className="text-white text-lg font-bold">CineData</h2>
-            </div>
-          </div>
+          <Logo />
 
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
             <a href="#">
