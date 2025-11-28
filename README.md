@@ -1,73 +1,42 @@
-# React + TypeScript + Vite
+<a href="https://github.com/gustavo-marinho1/CineData" title="TrendRadar">
+  <img src="https://github.com/gustavo-marinho1/cine-app/blob/main/src/assets/logo-img.png" alt="CineData Banner" width="50%">
+</a>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## CineData
 
-Currently, two official plugins are available:
+App to search information about movies and shows. I worked on it to be responsive, visually modern and fast.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### ✨ Technologies
 
-## React Compiler
+- Typescript
+- React
+- Vite
+- Axios
+- Redux
+- Tailwind
+- Shadcn
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+API used for data: https://www.omdbapi.com/
 
-## Expanding the ESLint configuration
+### ✨ Pages
+Home:
+<img src="https://github.com/gustavo-marinho1/CineData/blob/main/src/assets/home-page.png" alt="CineData home page" width="80%">
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Searching:
+<img src="https://github.com/gustavo-marinho1/CineData/blob/main/src/assets/search.png" alt="CineData search page" width="80%">
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Movie:
+<img src="https://github.com/gustavo-marinho1/CineData/blob/main/src/assets/extra-large-screen.png" alt="CineData movie page" width="80%">
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+My List (mobile):
+<img src="https://github.com/gustavo-marinho1/CineData/blob/main/src/assets/my-list-mobile.png" alt="CineData My List page" width="80%">
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+History:
+<img src="https://github.com/gustavo-marinho1/CineData/blob/main/src/assets/history-extralarge.png" alt="CineData history page" width="80%">
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+####Other screen sizes:
+Sidebar (only mobile):
+<img src="https://github.com/gustavo-marinho1/CineData/blob/main/src/assets/mobile-sidebar.png" alt="CineData sidebar" width="30%">
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Movie page:
+<img src="https://github.com/gustavo-marinho1/CineData/blob/main/src/assets/large-screen.png" alt="CineData movie page" width="60%">
