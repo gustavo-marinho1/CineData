@@ -9,7 +9,7 @@ export const MyList = () => {
   const navigate = useNavigate();
 
   // @ts-ignore
-  const myList: ItemMyList[] = useSelector((state) => state.myHistory.myHistory);
+  const myList: ItemMyList[] = useSelector((state) => state.myList.myList);
 
   const handleClick = (imdbID: string) => {
     navigate(`/movie/${imdbID}`);

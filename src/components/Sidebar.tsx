@@ -41,7 +41,7 @@ export function AppSidebar() {
       </SidebarContent>
 
       <SidebarFooter className="bg-black p-1">
-        <a href="https://github.com/gustavo-marinho1" className="text-center">
+        <a href="https://github.com/gustavo-marinho1" target="_blank" rel="noopener noreferrer" className="text-center">
           <span className="text-white text-sm">Github</span>
         </a>
       </SidebarFooter>
